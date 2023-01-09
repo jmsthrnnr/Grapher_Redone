@@ -82,8 +82,8 @@ public class Graph {
     }
 
     public String graphPoint(Point point1) {
-        double x = point1.getX() / resolution;
-        double y = point1.getY() / resolution;
+        int x = (int) ((point1.getX() / resolution) + 0.5);
+        int y = (int) ((point1.getY() / resolution) + 0.5);
         int index = (int) ((((height / 2) - y) * ((width * 2) + 1)) + ((width - 1) + (x * 2)));
         display = display.substring(0, index) + "#" + display.substring(index + 1, display.length());
         return display;
