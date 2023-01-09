@@ -54,36 +54,36 @@ public class Graph {
         return display;
     }
 
-    public String getDisplay() {
+    public String Display() {
         return display;
     }
-    public int getMinX() {
+    public int MinX() {
         return minX;
     }
 
-    public int getMaxX() {
+    public int MaxX() {
         return maxX;
     }
 
-    public int getMinY() {
+    public int MinY() {
         return minY;
     }
 
-    public int getMaxY() {
+    public int MaxY() {
         return maxY;
     }
 
-    public int getWidth() {
+    public int Width() {
         return width;
     }
 
-    public int getHeight() {
+    public int Height() {
         return height;
     }
 
     public String graphPoint(Point point1) {
-        int x = (int) ((point1.getX() / resolution) + 0.5);
-        int y = (int) ((point1.getY() / resolution) + 0.5);
+        int x = (int) ((point1.X() / resolution) + 0.5);
+        int y = (int) ((point1.Y() / resolution) + 0.5);
         int index = (int) ((((height / 2) - y) * ((width * 2) + 1)) + ((width - 1) + (x * 2)));
         display = display.substring(0, index) + "#" + display.substring(index + 1, display.length());
         return display;

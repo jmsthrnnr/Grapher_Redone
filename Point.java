@@ -7,11 +7,11 @@ public class Point {
         this.y = y;
     }
 
-    public double getX() {
+    public double X() {
         return x;
     }
 
-    public double getY() {
+    public double Y() {
         return y;
     }
 
