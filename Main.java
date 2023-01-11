@@ -1,26 +1,27 @@
 
 public class Main {
     public static void main(String[] args) {
-
-        Graph graph01 = new Graph(-10, 10, -10, 10, 1);
+        int size = 10;
+        Graph graph01 = new Graph(-size, size, -size, size, 1);
 
         graph01.createDisplay();
-        circle(graph01);
+        circle(graph01, 8);
         System.out.println(graph01.Display());
     }
 
-    public static void circle(Graph graph1) {
+    public static void circle(Graph graph1, int radius) {
         double x;
         double y;
         double x2;
         double y2;
-        double step = 0.3;
+        double step = Math.PI / 3.5;
         for (double i = 0; i <= (Math.PI * 2); i += step) {
-            x = Math.cos(i) * 8;
-            y = Math.sin(i) * 8;
-            x2 = Math.cos(i + step) * 8;
-            y2 = Math.sin(i + step) * 8;
+            x = Math.cos(i) * radius;
+            y = Math.sin(i) * radius;
+            x2 = Math.cos(i + step) * radius;
+            y2 = Math.sin(i + step) * radius;
             line(new Point(x, y), new Point(x2, y2), graph1);
+            // graph1.graphPoint(new Point(x, y));
         }
     }
 
