@@ -8,43 +8,43 @@ public class Graph {
     private double resolution;
     private String display = "";
 
-    public Graph(int minX, int maxX, int minY, int maxY, double resolution){
+    public Graph(int minX, int maxX, int minY, int maxY, double resolution) {
         this.minX = minX;
         this.maxX = maxX;
         this.minY = minY;
         this.maxY = maxY;
         this.resolution = resolution;
-        width  = (int) ((this.maxX - this.minX) / this.resolution) + 1;
+        width = (int) ((this.maxX - this.minX) / this.resolution) + 1;
         height = (int) ((this.maxY - this.minY) / this.resolution) + 1;
     }
 
     public String createDisplay() {
-        for(int a = 0; a < 2; a ++){
+        for (int a = 0; a < 2; a++) {
 
-            for(int i = 0; i < (height / 2); i ++) {
+            for (int i = 0; i < (height / 2); i++) {
 
-                for(int b = 0; b < 2; b ++){
+                for (int b = 0; b < 2; b++) {
 
-                    for(int j = 0; j < (width / 2); j ++) {
+                    for (int j = 0; j < (width / 2); j++) {
                         display += ". ";
                     }
 
-                    if(b < 1) {
+                    if (b < 1) {
                         display += "| ";
                     }
                 }
 
-                display += "\n"; 
+                display += "\n";
             }
 
-            if(a < 1) {
-                for(int b = 0; b < 2; b ++){
+            if (a < 1) {
+                for (int b = 0; b < 2; b++) {
 
-                    for(int j = 0; j < (width / 2); j ++) {
+                    for (int j = 0; j < (width / 2); j++) {
                         display += "- ";
                     }
 
-                    if(b < 1) {
+                    if (b < 1) {
                         display += "+ ";
                     }
                 }
@@ -57,6 +57,7 @@ public class Graph {
     public String Display() {
         return display;
     }
+
     public int MinX() {
         return minX;
     }
@@ -83,13 +84,14 @@ public class Graph {
 
     public String graphPoint(Point point1) {
 
-        int x = (int) ((point1.X() / resolution) + (0.5 * (point1.X() / Math.abs(point1.X()))));
-    
-        int y = (int) ((point1.Y() / resolution) + (0.5 * (point1.Y() / Math.abs(point1.Y()))));
-        // System.out.println("(" + x + ", " + y + ")");
+        int x = (int) ((point1.x / resolution) + (0.5 * (point1.x / Math.abs(point1.x))));
+
+        int y = (int) ((point1.y / resolution) + (0.5 * (point1.y / Math.abs(point1.y))));
 
         int index = (int) ((((height / 2) - y) * ((width * 2) + 1)) + ((width - 1) + (x * 2)));
-        display = display.substring(0, index) + "#" + display.substring(index + 1, display.length());
+        if (index >= 0 && index < display.length()) {
+            display = display.substring(0, index) + "#" + display.substring(index + 1, display.length());
+        }
         return display;
     }
 }
